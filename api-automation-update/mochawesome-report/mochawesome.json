@@ -1,0 +1,291 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-08-16T10:39:09.106Z",
+    "end": "2022-08-16T10:39:09.262Z",
+    "duration": 156,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3ab92626-b8f0-4967-a7f0-81bc840791e4",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ad82c075-14f8-47c2-a0b1-b5670b6b6dac",
+          "title": "[@getById user] GetById User API Test",
+          "fullFile": "D:\\Bootcamp\\api-automation-update\\testcase\\getById-user.js",
+          "file": "\\testcase\\getById-user.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"[@getById user] GetById User API Test\"",
+              "fullTitle": "[@getById user] GetById User API Test \"before all\" hook in \"[@getById user] GetById User API Test\"",
+              "timedOut": false,
+              "duration": 66,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"Before : Create User\");\nlet response = await api.postUser(requestBody);\nexpect(response.status).to.equal(200);\n// Get ID\nresponse = await api.getUser(requestBody.firstName);\nbodyData = response.body;\nexpect(response.status).to.equal(200);\nID = bodyData.data[0].id;\n// console.log(ID);",
+              "err": {},
+              "uuid": "4c86e111-9b03-4ff8-a4f2-f9c26f89a2f2",
+              "parentUUID": "ad82c075-14f8-47c2-a0b1-b5670b6b6dac",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"[@getById user] GetById User API Test\"",
+              "fullTitle": "[@getById user] GetById User API Test \"after all\" hook in \"[@getById user] GetById User API Test\"",
+              "timedOut": false,
+              "duration": 6,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"After : Delete User\");\nlet response = await api.deleteById(ID);\nexpect(response.status).to.equal(200);",
+              "err": {},
+              "uuid": "b17822bc-a26f-4182-b9a3-5eff065cebed",
+              "parentUUID": "ad82c075-14f8-47c2-a0b1-b5670b6b6dac",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "[@positive] User menggunakan data user id yang valid.",
+              "fullTitle": "[@getById user] GetById User API Test [@positive] User menggunakan data user id yang valid.",
+              "timedOut": false,
+              "duration": 11,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let keyword = ID;\nlet response = await api.getById(keyword);\nexpect(response.status).to.equal(200);\n// console.log(response.body)\nexpect(response.body.id).to.equal(keyword);\nexpect(response.body).has.jsonSchema(jsonSchema);",
+              "err": {},
+              "uuid": "61345100-76f1-4f89-8174-7c00eac9230b",
+              "parentUUID": "ad82c075-14f8-47c2-a0b1-b5670b6b6dac",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[@negative] User gagal mendapatkan data ketika data id yang diinputkan invalid.",
+              "fullTitle": "[@getById user] GetById User API Test [@negative] User gagal mendapatkan data ketika data id yang diinputkan invalid.",
+              "timedOut": false,
+              "duration": 6,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let keyword = 0;\nlet response = await api.getById(keyword);\nexpect(response.status).to.equal(404);\n// console.log(response.body)\nexpect(response.body.message).to.equal(\"user not found\");\nexpect(response.body.errorCode).to.equal(\"ER-01\");",
+              "err": {},
+              "uuid": "61dce343-87d1-44a8-9ab6-4dfa80828b2c",
+              "parentUUID": "ad82c075-14f8-47c2-a0b1-b5670b6b6dac",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "61345100-76f1-4f89-8174-7c00eac9230b",
+            "61dce343-87d1-44a8-9ab6-4dfa80828b2c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "bfba8f7c-1582-4ea6-9d91-2d748d103725",
+          "title": "[@put user] Put User API Test",
+          "fullFile": "D:\\Bootcamp\\api-automation-update\\testcase\\put-user.js",
+          "file": "\\testcase\\put-user.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"[@put user] Put User API Test\"",
+              "fullTitle": "[@put user] Put User API Test \"before all\" hook in \"[@put user] Put User API Test\"",
+              "timedOut": false,
+              "duration": 12,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"Before : Create User\");\nlet response = await api.postUser(requestBody);\nexpect(response.status).to.equal(200);\n// Get ID\nresponse = await api.getUser(requestBody.firstName);\nbodyData = response.body;\nexpect(response.status).to.equal(200);\nID = bodyData.data[0].id;\n// console.log(ID);",
+              "err": {},
+              "uuid": "2833959d-8d4f-43ef-837c-d844ebf467da",
+              "parentUUID": "bfba8f7c-1582-4ea6-9d91-2d748d103725",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"[@put user] Put User API Test\"",
+              "fullTitle": "[@put user] Put User API Test \"after all\" hook in \"[@put user] Put User API Test\"",
+              "timedOut": false,
+              "duration": 6,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"After : Delete User\");\nlet response = await api.deleteById(ID);\nexpect(response.status).to.equal(200);",
+              "err": {},
+              "uuid": "3bfc1599-36a8-4e0f-bb94-2d58590eae0f",
+              "parentUUID": "bfba8f7c-1582-4ea6-9d91-2d748d103725",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "[@positive] User berhasil mengupdate data Occupation dan Nationality",
+              "fullTitle": "[@put user] Put User API Test [@positive] User berhasil mengupdate data Occupation dan Nationality",
+              "timedOut": false,
+              "duration": 7,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let requestBody = testdata.dataRequest(ID);\n        let response = await api.putUser(requestBody);\n        expect(response.status).to.equal(200);\n        // console.log(response.body)\n        expect(response.body.occupation).to.equal(requestBody.occupation);\n        expect(response.body.nasionality).to.equal(requestBody.nasionality);\n        // console.log(response.body)\n        expect(response.body).has.jsonSchema(jsonSchema);",
+              "err": {},
+              "uuid": "c18c4679-e24d-4d1f-a699-4ebb5258d3f1",
+              "parentUUID": "bfba8f7c-1582-4ea6-9d91-2d748d103725",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[@negative1] User gagal mengupdate data ketika age bernilai 0.",
+              "fullTitle": "[@put user] Put User API Test [@negative1] User gagal mengupdate data ketika age bernilai 0.",
+              "timedOut": false,
+              "duration": 8,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let requestBody = testdata.dataRequest(ID);\n        requestBody.age = 0;\n        // console.log(requestBody)\n        let response = await api.putUser(requestBody);\n        expect(response.status).to.equal(400);\n        expect(response.body.errorCode).to.equal(\"ER-03\");\n        expect(response.body.message).to.equal(\"you must specify data for firstname, lastName, age, occupation, nationality, hobbies (at least 1), and gender\");\n        // console.log(response.body)",
+              "err": {},
+              "uuid": "03d8aa2f-acd4-418f-8cec-7a552e7aa147",
+              "parentUUID": "bfba8f7c-1582-4ea6-9d91-2d748d103725",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[@negative2]User gagal mengupdate data ketika data hobbies merupakan empty array.",
+              "fullTitle": "[@put user] Put User API Test [@negative2]User gagal mengupdate data ketika data hobbies merupakan empty array.",
+              "timedOut": false,
+              "duration": 9,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let requestBody = testdata.dataRequest(ID);\n        requestBody.hobbies = [];\n        // console.log(requestBody)\n        let response = await api.putUser(requestBody);\n        // console.log(response.body)\n        expect(response.status).to.equal(400);\n        expect(response.body.message).to.equal(\"you must specify data for firstname, lastName, age, occupation, nationality, hobbies (at least 1), and gender\");\n        expect(response.body.errorCode).to.equal(\"ER-03\");",
+              "err": {},
+              "uuid": "ad8d3e3d-5fdc-4778-8d33-1823dcf7c4d8",
+              "parentUUID": "bfba8f7c-1582-4ea6-9d91-2d748d103725",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "[@negative3] User gagal mengupdate data ketika data id null.",
+              "fullTitle": "[@put user] Put User API Test [@negative3] User gagal mengupdate data ketika data id null.",
+              "timedOut": false,
+              "duration": 10,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let requestBody = testdata.dataRequest(ID);\n        requestBody.id = null;\n        // console.log(requestBody)\n        let response = await api.putUser(requestBody);\n        expect(response.status).to.equal(404);\n        expect(response.body.message).to.equal(\"user not found\");\n        expect(response.body.errorCode).to.equal(\"ER-01\");\n        // console.log(response.body);",
+              "err": {},
+              "uuid": "08f7635b-5d19-4972-a406-2100a26658d9",
+              "parentUUID": "bfba8f7c-1582-4ea6-9d91-2d748d103725",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c18c4679-e24d-4d1f-a699-4ebb5258d3f1",
+            "03d8aa2f-acd4-418f-8cec-7a552e7aa147",
+            "ad8d3e3d-5fdc-4778-8d33-1823dcf7c4d8",
+            "08f7635b-5d19-4972-a406-2100a26658d9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 34,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.0.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
